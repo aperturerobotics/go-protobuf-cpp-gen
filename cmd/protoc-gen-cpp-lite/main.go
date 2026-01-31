@@ -21,8 +21,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/aperturerobotics/protobuf-cpp-gen/compiler"
-	"github.com/aperturerobotics/protobuf-cpp-gen/generator"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/compiler"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/generator"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/pluginpb"
 )

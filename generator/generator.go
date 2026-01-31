@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/aperturerobotics/protobuf-cpp-gen/compiler"
-	"github.com/aperturerobotics/protobuf-cpp-gen/generator/base"
-	"github.com/aperturerobotics/protobuf-cpp-gen/generator/genfile"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/compiler"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/generator/base"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/generator/genfile"
 	"github.com/bufbuild/protocompile/linker"
 	"google.golang.org/protobuf/reflect/protoreflect"
 )

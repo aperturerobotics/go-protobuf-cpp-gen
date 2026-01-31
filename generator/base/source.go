@@ -1,9 +1,9 @@
 package base
 
 import (
-	"github.com/aperturerobotics/protobuf-cpp-gen/generator/genfile"
-	"github.com/aperturerobotics/protobuf-cpp-gen/internal/naming"
-	"github.com/aperturerobotics/protobuf-cpp-gen/internal/types"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/generator/genfile"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/internal/naming"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/internal/types"
 	"google.golang.org/protobuf/reflect/protoreflect"
 )
 

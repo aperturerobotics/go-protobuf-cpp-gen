@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/aperturerobotics/protobuf-cpp-gen/generator/genfile"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/generator/genfile"
 	"google.golang.org/protobuf/reflect/protoreflect"
 )
 

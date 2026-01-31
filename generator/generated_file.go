@@ -1,6 +1,6 @@
 package generator
 
-import "github.com/aperturerobotics/protobuf-cpp-gen/generator/genfile"
+import "github.com/aperturerobotics/go-protobuf-cpp-gen/generator/genfile"
 
 // Aliases for commonly used types from genfile package.
 type (

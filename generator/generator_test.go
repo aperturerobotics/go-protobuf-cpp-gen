@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/aperturerobotics/protobuf-cpp-gen/compiler"
-	"github.com/aperturerobotics/protobuf-cpp-gen/generator"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/compiler"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/generator"
 )
 
 func TestGenerateSimpleMessage(t *testing.T) {
@@ -65,11 +65,6 @@ func TestGenerateSimpleMessage(t *testing.T) {
 	// Check for SimpleMessage class
 	if !strings.Contains(headerContent, "class SimpleMessage") {
 		t.Error("SimpleMessage class not found")
-	}
-
-	// Check for MessageLite base class
-	if !strings.Contains(headerContent, "MessageLite") {
-		t.Error("MessageLite base class not found")
 	}
 
 	// Check for field accessors
@@ -195,12 +190,9 @@ func TestGenerateRepeatedFields(t *testing.T) {
 		t.Error("add_names() not found")
 	}
 
-	// Check for RepeatedField/RepeatedPtrField storage
-	if !strings.Contains(headerContent, "RepeatedPtrField") {
-		t.Error("RepeatedPtrField not found")
-	}
-	if !strings.Contains(headerContent, "RepeatedField") {
-		t.Error("RepeatedField not found")
+	// Check for std::vector storage (standalone classes use STL containers)
+	if !strings.Contains(headerContent, "std::vector<") {
+		t.Error("std::vector not found")
 	}
 }
 
@@ -283,9 +275,9 @@ func TestGenerateMapField(t *testing.T) {
 		t.Error("MapMessage class not found")
 	}
 
-	// Check for Map type
-	if !strings.Contains(headerContent, "::google::protobuf::Map<") {
-		t.Error("Map type not found")
+	// Check for std::map type (standalone classes use STL containers)
+	if !strings.Contains(headerContent, "std::map<") {
+		t.Error("std::map type not found")
 	}
 }
 

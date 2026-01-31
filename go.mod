@@ -1,4 +1,4 @@
-module github.com/aperturerobotics/protobuf-cpp-gen
+module github.com/aperturerobotics/go-protobuf-cpp-gen
 
 go 1.24
 

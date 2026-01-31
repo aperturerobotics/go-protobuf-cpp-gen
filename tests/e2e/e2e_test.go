@@ -13,7 +13,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/aperturerobotics/protobuf-cpp-gen/generator"
+	"github.com/aperturerobotics/go-protobuf-cpp-gen/generator"
 )
 
 // testDir returns the path to the e2e test directory.
@@ -251,7 +251,6 @@ func TestGeneratedHeaderStructure(t *testing.T) {
 				"set_string_val(",
 				"mutable_string_val()",
 				"clear_bool_val()",
-				"MessageLite",
 				"ByteSizeLong()",
 				"SerializeToString(",
 				"ParseFromString(",
@@ -279,8 +278,7 @@ func TestGeneratedHeaderStructure(t *testing.T) {
 			file: "repeated.pb.h",
 			contains: []string{
 				"class RepeatedScalars",
-				"RepeatedField<",
-				"RepeatedPtrField<",
+				"std::vector<",
 				"bool_vals_size()",
 				"add_bool_vals(",
 				"clear_bool_vals()",
@@ -314,7 +312,7 @@ func TestGeneratedHeaderStructure(t *testing.T) {
 			file: "maps.pb.h",
 			contains: []string{
 				"class MapScalars",
-				"::google::protobuf::Map<",
+				"std::map<",
 				"string_to_string()",
 				"mutable_string_to_string()",
 				"string_to_string_size()",
@@ -367,9 +365,9 @@ func TestGeneratedSourceStructure(t *testing.T) {
 				"AllScalars::Clear()",
 				"AllScalars::ByteSizeLong()",
 				"AllScalars::SerializeToString(",
-				"AllScalars::SerializeToCodedStream(",
+				"AllScalars::SerializeToArray(",
 				"AllScalars::ParseFromString(",
-				"AllScalars::ParseFromCodedStream(",
+				"AllScalars::ParseFromArray(",
 				"operator=(",
 			},
 		},
