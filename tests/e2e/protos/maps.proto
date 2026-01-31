@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package test.maps;
+
+// Tests various map key/value combinations
+message MapScalars {
+  map<string, string> string_to_string = 1;
+  map<string, int32> string_to_int32 = 2;
+  map<string, int64> string_to_int64 = 3;
+  map<string, bool> string_to_bool = 4;
+  map<string, double> string_to_double = 5;
+  map<int32, string> int32_to_string = 6;
+  map<int64, string> int64_to_string = 7;
+  map<uint32, string> uint32_to_string = 8;
+  map<uint64, string> uint64_to_string = 9;
+  map<bool, string> bool_to_string = 10;
+}
+
+// Value message for map tests
+message MapValue {
+  string name = 1;
+  int32 score = 2;
+}
+
+// Tests maps with message values
+message MapMessages {
+  map<string, MapValue> string_to_message = 1;
+  map<int32, MapValue> int32_to_message = 2;
+}
+
+// Mixed fields with maps
+message MixedWithMaps {
+  string name = 1;
+  map<string, int32> scores = 2;
+  repeated string tags = 3;
+  map<string, MapValue> data = 4;
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package test.scalars;
+
+// Tests all scalar types
+message AllScalars {
+  bool bool_val = 1;
+  int32 int32_val = 2;
+  int64 int64_val = 3;
+  uint32 uint32_val = 4;
+  uint64 uint64_val = 5;
+  sint32 sint32_val = 6;
+  sint64 sint64_val = 7;
+  fixed32 fixed32_val = 8;
+  fixed64 fixed64_val = 9;
+  sfixed32 sfixed32_val = 10;
+  sfixed64 sfixed64_val = 11;
+  float float_val = 12;
+  double double_val = 13;
+  string string_val = 14;
+  bytes bytes_val = 15;
+}
+
+// Tests default values
+message DefaultValues {
+  bool bool_val = 1;
+  int32 int32_val = 2;
+  string string_val = 3;
+  double double_val = 4;
+}

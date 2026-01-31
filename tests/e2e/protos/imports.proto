@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package test.imports;
+
+import "common.proto";
+
+// Resource using imported types
+message Resource {
+  test.common.Metadata metadata = 1;
+  test.common.CommonStatus status = 2;
+  string spec = 3;
+}
+
+// Task using imported timestamp
+message Task {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  test.common.Timestamp due_date = 4;
+  test.common.Duration estimated_duration = 5;
+  test.common.CommonStatus status = 6;
+}
+
+// Event with timestamps
+message Event {
+  string id = 1;
+  string type = 2;
+  test.common.Timestamp timestamp = 3;
+  map<string, string> data = 4;
+}

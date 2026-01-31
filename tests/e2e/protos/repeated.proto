@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package test.repeated;
+
+// Tests repeated scalar fields
+message RepeatedScalars {
+  repeated bool bool_vals = 1;
+  repeated int32 int32_vals = 2;
+  repeated int64 int64_vals = 3;
+  repeated uint32 uint32_vals = 4;
+  repeated uint64 uint64_vals = 5;
+  repeated float float_vals = 6;
+  repeated double double_vals = 7;
+  repeated string string_vals = 8;
+  repeated bytes bytes_vals = 9;
+}
+
+// Simple inner message for testing
+message Item {
+  string name = 1;
+  int32 quantity = 2;
+  double price = 3;
+}
+
+// Tests repeated message fields
+message RepeatedMessages {
+  repeated Item items = 1;
+}
+
+// Tests mixed repeated fields
+message Container {
+  string name = 1;
+  repeated int32 ids = 2;
+  repeated string tags = 3;
+  repeated Item items = 4;
+}

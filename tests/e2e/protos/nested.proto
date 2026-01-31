@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package test.nested;
+
+// Outer message with nested types
+message Outer {
+  // First level nested message
+  message Middle {
+    // Second level nested message
+    message Inner {
+      string value = 1;
+      int32 count = 2;
+    }
+
+    string name = 1;
+    Inner inner = 2;
+    repeated Inner inners = 3;
+  }
+
+  string id = 1;
+  Middle middle = 2;
+  repeated Middle middles = 3;
+}
+
+// Cross-referencing nested messages
+message Document {
+  message Header {
+    string title = 1;
+    string author = 2;
+    int64 created_at = 3;
+  }
+
+  message Body {
+    message Section {
+      string heading = 1;
+      string content = 2;
+    }
+
+    repeated Section sections = 1;
+  }
+
+  message Footer {
+    string copyright = 1;
+    int32 page_count = 2;
+  }
+
+  Header header = 1;
+  Body body = 2;
+  Footer footer = 3;
+}
+
+// Deep nesting test
+message Level1 {
+  message Level2 {
+    message Level3 {
+      message Level4 {
+        string deep_value = 1;
+      }
+      Level4 level4 = 1;
+    }
+    Level3 level3 = 1;
+  }
+  Level2 level2 = 1;
+}

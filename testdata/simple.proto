@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package example;
+
+// A simple message for testing basic scalar types.
+message SimpleMessage {
+  string name = 1;
+  int32 id = 2;
+  bool active = 3;
+  double score = 4;
+  bytes data = 5;
+}
+
+// A message with all scalar types.
+message AllScalars {
+  bool bool_field = 1;
+  int32 int32_field = 2;
+  int64 int64_field = 3;
+  uint32 uint32_field = 4;
+  uint64 uint64_field = 5;
+  sint32 sint32_field = 6;
+  sint64 sint64_field = 7;
+  fixed32 fixed32_field = 8;
+  fixed64 fixed64_field = 9;
+  sfixed32 sfixed32_field = 10;
+  sfixed64 sfixed64_field = 11;
+  float float_field = 12;
+  double double_field = 13;
+  string string_field = 14;
+  bytes bytes_field = 15;
+}
+
+// An enum for testing.
+enum Status {
+  UNKNOWN = 0;
+  ACTIVE = 1;
+  INACTIVE = 2;
+  PENDING = 3;
+}
+
+// A message with an enum field.
+message MessageWithEnum {
+  string name = 1;
+  Status status = 2;
+}
+
+// A message with repeated fields.
+message RepeatedFields {
+  repeated string names = 1;
+  repeated int32 numbers = 2;
+  repeated Status statuses = 3;
+}
+
+// A nested message.
+message Outer {
+  message Inner {
+    string value = 1;
+    int32 count = 2;
+  }
+
+  string name = 1;
+  Inner inner = 2;
+  repeated Inner inners = 3;
+}
+
+// A message with a map field.
+message MapMessage {
+  map<string, int32> string_to_int = 1;
+  map<int32, string> int_to_string = 2;
+}

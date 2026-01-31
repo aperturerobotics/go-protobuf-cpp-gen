@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package test.enums;
+
+// Simple enum
+enum Status {
+  STATUS_UNKNOWN = 0;
+  STATUS_ACTIVE = 1;
+  STATUS_INACTIVE = 2;
+  STATUS_PENDING = 3;
+}
+
+// Enum with gaps in numbering
+enum Priority {
+  PRIORITY_UNSPECIFIED = 0;
+  PRIORITY_LOW = 10;
+  PRIORITY_MEDIUM = 20;
+  PRIORITY_HIGH = 30;
+  PRIORITY_CRITICAL = 100;
+}
+
+// Message with enum fields
+message EnumMessage {
+  Status status = 1;
+  Priority priority = 2;
+  repeated Status statuses = 3;
+}
+
+// Message with nested enum
+message MessageWithNestedEnum {
+  enum NestedStatus {
+    NESTED_UNKNOWN = 0;
+    NESTED_OK = 1;
+    NESTED_ERROR = 2;
+  }
+
+  NestedStatus status = 1;
+  string message = 2;
+}

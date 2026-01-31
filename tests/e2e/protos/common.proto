@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package test.common;
+
+// Common timestamp representation
+message Timestamp {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}
+
+// Common duration representation
+message Duration {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}
+
+// Common metadata
+message Metadata {
+  string id = 1;
+  string name = 2;
+  Timestamp created_at = 3;
+  Timestamp updated_at = 4;
+  map<string, string> labels = 5;
+  map<string, string> annotations = 6;
+}
+
+// Common status enum
+enum CommonStatus {
+  COMMON_STATUS_UNSPECIFIED = 0;
+  COMMON_STATUS_PENDING = 1;
+  COMMON_STATUS_RUNNING = 2;
+  COMMON_STATUS_COMPLETED = 3;
+  COMMON_STATUS_FAILED = 4;
+}
