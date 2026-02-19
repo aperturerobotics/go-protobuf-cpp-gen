@@ -15,9 +15,12 @@
     },
     {
       "matchManagers": ["gomod"],
-      "matchPackageNames": [
-        "github.com/aperturerobotics/go-protobuf-cpp-gen"
-      ],
+      "matchPackageNames": ["github.com/aperturerobotics/go-protobuf-cpp-gen"],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["gomod"],
+      "matchDepTypes": ["golang"],
       "enabled": false
     }
   ]
