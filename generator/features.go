@@ -1,8 +1,9 @@
 package generator
 
 import (
+	"cmp"
 	"fmt"
-	"sort"
+	"slices"
 
 	"github.com/aperturerobotics/go-protobuf-cpp-gen/generator/genfile"
 	"google.golang.org/protobuf/reflect/protoreflect"
@@ -51,8 +52,8 @@ func findFeatures(featureNames []string) ([]Feature, error) {
 	for name, feat := range required {
 		sorted = append(sorted, namefeat{name, feat})
 	}
-	sort.Slice(sorted, func(i, j int) bool {
-		return sorted[i].name < sorted[j].name
+	slices.SortFunc(sorted, func(a, b namefeat) int {
+		return cmp.Compare(a.name, b.name)
 	})
 
 	var features []Feature

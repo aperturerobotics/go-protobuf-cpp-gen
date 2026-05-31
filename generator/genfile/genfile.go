@@ -4,7 +4,7 @@ package genfile
 import (
 	"bytes"
 	"fmt"
-	"sort"
+	"slices"
 	"strings"
 )
 
@@ -113,7 +113,7 @@ func (g *GeneratedFile) Filename() string {
 
 // P prints a line to the generated file with the current indentation.
 // Arguments are printed sequentially. CppIdent values are formatted as fully qualified names.
-func (g *GeneratedFile) P(v ...interface{}) {
+func (g *GeneratedFile) P(v ...any) {
 	for i := 0; i < g.indent; i++ {
 		g.buf.WriteString("  ")
 	}
@@ -131,7 +131,7 @@ func (g *GeneratedFile) P(v ...interface{}) {
 }
 
 // Pf prints a formatted line to the generated file with the current indentation.
-func (g *GeneratedFile) Pf(format string, args ...interface{}) {
+func (g *GeneratedFile) Pf(format string, args ...any) {
 	for i := 0; i < g.indent; i++ {
 		g.buf.WriteString("  ")
 	}
@@ -189,8 +189,8 @@ func (g *GeneratedFile) Content() []byte {
 			userIncludes = append(userIncludes, inc.Path)
 		}
 	}
-	sort.Strings(systemIncludes)
-	sort.Strings(userIncludes)
+	slices.Sort(systemIncludes)
+	slices.Sort(userIncludes)
 
 	for _, path := range systemIncludes {
 		fmt.Fprintf(&result, "#include <%s>\n", path)

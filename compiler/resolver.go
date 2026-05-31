@@ -27,8 +27,8 @@ type VendoredResolver struct {
 func (r *VendoredResolver) FindFileByPath(path string) (protocompile.SearchResult, error) {
 	// Try vendor mappings first
 	for prefix, vendorPath := range r.VendorMappings {
-		if strings.HasPrefix(path, prefix) {
-			suffix := strings.TrimPrefix(path, prefix)
+		if after, ok := strings.CutPrefix(path, prefix); ok {
+			suffix := after
 			mappedPath := vendorPath + suffix
 			for _, importPath := range r.ImportPaths {
 				fullPath := filepath.Join(importPath, mappedPath)

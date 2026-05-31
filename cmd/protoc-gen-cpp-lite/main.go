@@ -1,8 +1,8 @@
 // protoc-gen-cpp-lite is a pure-Go C++ code generator for Protocol Buffers.
 //
 // It can be used in two modes:
-//   1. Standalone mode: uses protocompile to parse .proto files directly
-//   2. Plugin mode: receives CodeGeneratorRequest from protoc
+//  1. Standalone mode: uses protocompile to parse .proto files directly
+//  2. Plugin mode: receives CodeGeneratorRequest from protoc
 //
 // Standalone usage:
 //
@@ -165,7 +165,7 @@ func parseParameter(param string) *generator.Config {
 		return config
 	}
 
-	for _, opt := range strings.Split(param, ",") {
+	for opt := range strings.SplitSeq(param, ",") {
 		parts := strings.SplitN(opt, "=", 2)
 		key := parts[0]
 		value := ""

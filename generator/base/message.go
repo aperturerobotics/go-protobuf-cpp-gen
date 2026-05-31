@@ -1,6 +1,8 @@
 package base
 
 import (
+	"strings"
+
 	"github.com/aperturerobotics/go-protobuf-cpp-gen/generator/genfile"
 	"github.com/aperturerobotics/go-protobuf-cpp-gen/internal/naming"
 	"github.com/aperturerobotics/go-protobuf-cpp-gen/internal/types"
@@ -352,12 +354,12 @@ func FullyQualifiedEnumName(enum protoreflect.EnumDescriptor) string {
 }
 
 func joinParts(parts []string) string {
-	result := ""
+	var result strings.Builder
 	for i, p := range parts {
 		if i > 0 {
-			result += "::"
+			result.WriteString("::")
 		}
-		result += p
+		result.WriteString(p)
 	}
-	return result
+	return result.String()
 }
