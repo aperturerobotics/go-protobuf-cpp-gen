@@ -1,13 +1,11 @@
 # go-protobuf-cpp-gen
 
-[![GoDoc Widget]][GoDoc] [![Go Report Card Widget]][Go Report Card]
+[![GoDoc Widget]][GoDoc]
 
 > A pure-Go C++ protobuf code generator using protocompile for parsing.
 
 [GoDoc]: https://godoc.org/github.com/aperturerobotics/go-protobuf-cpp-gen
 [GoDoc Widget]: https://godoc.org/github.com/aperturerobotics/go-protobuf-cpp-gen?status.svg
-[Go Report Card Widget]: https://goreportcard.com/badge/github.com/aperturerobotics/go-protobuf-cpp-gen
-[Go Report Card]: https://goreportcard.com/report/github.com/aperturerobotics/go-protobuf-cpp-gen
 
 ## Related Projects
 
