@@ -16,13 +16,14 @@ import (
 	"github.com/aperturerobotics/go-protobuf-cpp-gen/generator"
 )
 
-// testDir returns the path to the e2e test directory.
-func testDir(t *testing.T) string {
-	_, file, _, ok := runtime.Caller(0)
-	if !ok {
-		t.Fatal("failed to get test directory")
+// testDir returns the path to the e2e test directory, where go test runs.
+func testDir(t testing.TB) string {
+	t.Helper()
+	dir, err := os.Getwd()
+	if err != nil {
+		t.Fatalf("get working directory: %v", err)
 	}
-	return filepath.Dir(file)
+	return dir
 }
 
 // TestGenerateProtos tests that all proto files can be parsed and generated.
@@ -433,7 +434,7 @@ find_package(Protobuf REQUIRED)
 
 // BenchmarkGeneration benchmarks the code generation.
 func BenchmarkGeneration(b *testing.B) {
-	dir := testDir(&testing.T{})
+	dir := testDir(b)
 	protoDir := filepath.Join(dir, "protos")
 
 	config := &generator.Config{
